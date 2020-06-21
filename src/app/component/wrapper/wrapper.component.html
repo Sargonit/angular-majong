@@ -1,6 +1,6 @@
 <h1 class="header">Mahjong-like game</h1>
 <div class="wrapper">
-   <card *ngFor="let primeNumber of primeNumbers"
+   <card *ngFor="let primeNumber of primeNumbers; let"
    [value]="primeNumber"
    (cardSettings)="getActiveCard($event)">     
    </card>

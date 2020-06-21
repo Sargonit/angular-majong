@@ -7,7 +7,7 @@ import {
   transition
 } from '@angular/animations';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
-import { Card } from './card';
+import { ICard, Card } from './card';
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -36,6 +36,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CardComponent implements OnInit {
   
   @Input() value: number;
+  @Input() id: number;
   @Output() cardSettings = new EventEmitter<Card>();
   getCardSettings() {
     this.cardSettings.emit(this.card);
@@ -48,8 +49,11 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit () {
-    this.card = new Card(this.value);
-  }
-
-  
+    const cnt: ICard = {
+      value: this.value,
+      id: this.id,
+      isActive: false
+    }
+    this.card = new Card(cnt);
+  }  
 }
