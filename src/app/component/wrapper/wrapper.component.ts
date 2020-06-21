@@ -10,12 +10,14 @@ import { GeneratopPrimeNumber } from '../../service/generator-prime-number.servi
 export class WrapperComponent  {
 
   primeNumbers: Array<number>;
+  clickedValue: number = 0;
 
   constructor(private generatopPrimeNumber: GeneratopPrimeNumber){
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();
   }
 
-  addItem(newItem: number) {
-    console.log(newItem)
+  getCardValue(cardValue) {
+
+    console.log(cardValue)
   }
 }

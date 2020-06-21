@@ -60,7 +60,7 @@ import {
 export class CardComponent  {
   
   @Input() primeNumber: number;
-  @Output() newItemEvent = new EventEmitter<number>();
+  @Output() cardValue = new EventEmitter<number>();
 
 
   isNeedView = false;
@@ -74,7 +74,7 @@ export class CardComponent  {
 
   viewCardValue() {
     this.isNeedView = true;
-    this.newItemEvent.emit(this.primeNumber);
+    this.cardValue.emit(this.primeNumber);
   }
 
   viewBoxShadow() {
