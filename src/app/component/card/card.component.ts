@@ -29,14 +29,6 @@ import { BehaviorSubject } from 'rxjs';
       state('hideNumberAnim', style({
         opacity: '0',
       })),
-    ]),
-    trigger('mouseOver', [
-      state('over', style({
-        boxShadow: '0px 0px 7px 4px lightgray',
-      })),
-      state('blur', style({
-        boxShadow: '0px 0px 7px 2px lightgray',
-      })) 
     ])
   ]
 })
@@ -44,7 +36,10 @@ import { BehaviorSubject } from 'rxjs';
 export class CardComponent implements OnInit {
   
   @Input() value: number;
-  @Output() cardSettings = new EventEmitter<Card>(); 
+  @Output() cardSettings = new EventEmitter<Card>();
+  getCardSettings() {
+        this.cardSettings.emit(this.card);
+    }
 
   card: Card;
 

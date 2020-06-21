@@ -2,6 +2,6 @@
 <div class="wrapper">
    <card *ngFor="let primeNumber of primeNumbers"
    [value]="primeNumber"
-   (currentActiveCard)="getActiveCard(currentActiveCard)">     
+   (cardSettings)="getActiveCard(currentActiveCard)">     
    </card>
 </div>

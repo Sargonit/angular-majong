@@ -7,8 +7,8 @@
   height: 70px;
   cursor: pointer;
 }
-.bordder:hover {
-  box-shadow: '0px 0px 7px 4px lightgray',
+.border:hover {
+  box-shadow: 0px 0px 7px 4px lightgray;
 }
 
 .centered-text {

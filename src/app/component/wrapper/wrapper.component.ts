@@ -18,6 +18,6 @@ export class WrapperComponent  {
   }
 
   getActiveCard(card: Card) {   
-    
+    console.log(card);
   }
 }
