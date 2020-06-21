@@ -7,7 +7,7 @@ import {
   transition
 } from '@angular/animations';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
-import { Card } from './Card';
+import { Card } from './card';
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -44,10 +44,10 @@ import { BehaviorSubject } from 'rxjs';
 export class CardComponent implements OnInit {
   
   @Input() value: number;
+  @Output() cardSettings = new EventEmitter<Card>(); 
 
   card: Card;
-  // isNeedView = false;
-  // isNeedViewBoxShadow = false;
+
 
   constructor (private generatopPrimeNumber: GeneratopPrimeNumber) {
   }
@@ -56,21 +56,5 @@ export class CardComponent implements OnInit {
 
   }
 
-  // viewCardValue() {
-  //   if (!this.isNeedView) {
-  //     const value = this.generatopPrimeNumber.clickedPrimeNumber.getValue();//this.primeNumber);
-  //   }
-  //   this.isNeedView = true;
-
-  //   this.cardValue.emit(this.primeNumber);
-  // }
-
-  // viewBoxShadow() {
-  //   this.isNeedViewBoxShadow = true;
-  // }
-
-  // hideCardValue() {
-  //   this.isNeedView = false;
-  //   this.isNeedViewBoxShadow = false;
-  // }
+  
 }
