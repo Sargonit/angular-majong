@@ -7,6 +7,9 @@ import {
   transition
 } from '@angular/animations';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
+import { Card } from './Card';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'card',
@@ -40,14 +43,11 @@ import { GeneratopPrimeNumber } from '../../service/generator-prime-number.servi
 
 export class CardComponent implements OnInit {
   
-  @Input() primeNumber: number;
-  @Input() isBlocked = false;
+  @Input() value: number;
 
-  @Output() cardValue = new EventEmitter<number>();
-
-
-  isNeedView = false;
-  isNeedViewBoxShadow = false;
+  card: Card;
+  // isNeedView = false;
+  // isNeedViewBoxShadow = false;
 
   constructor (private generatopPrimeNumber: GeneratopPrimeNumber) {
   }
@@ -56,23 +56,21 @@ export class CardComponent implements OnInit {
 
   }
 
-  viewCardValue() {
-    this.isNeedView = true;
-    if (!this.isNeedView) {
-      this.generatopPrimeNumber.clickedPrimeNumber.subscribe(newPrimeNumber => {
-        console.log(newPrimeNumber);
-      });
-      this.generatopPrimeNumber.clickedPrimeNumber.next(this.primeNumber);
-    }
-    this.cardValue.emit(this.primeNumber);
-  }
+  // viewCardValue() {
+  //   if (!this.isNeedView) {
+  //     const value = this.generatopPrimeNumber.clickedPrimeNumber.getValue();//this.primeNumber);
+  //   }
+  //   this.isNeedView = true;
 
-  viewBoxShadow() {
-    this.isNeedViewBoxShadow = true;
-  }
+  //   this.cardValue.emit(this.primeNumber);
+  // }
 
-  hideCardValue() {
-    this.isNeedView = false;
-    this.isNeedViewBoxShadow = false;
-  }
+  // viewBoxShadow() {
+  //   this.isNeedViewBoxShadow = true;
+  // }
+
+  // hideCardValue() {
+  //   this.isNeedView = false;
+  //   this.isNeedViewBoxShadow = false;
+  // }
 }

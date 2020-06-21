@@ -13,6 +13,9 @@ export class GeneratopPrimeNumber {
   private primeNumbers: Array<number> = [];
 
   constructor() { 
+    this.clickedPrimeNumber.subscribe(newPrimeNumber => {
+      // console.log(newPrimeNumber);
+    });
     this.primeNumbers.push(2,3);
     for (let i = 4; i < 50; i+=1) {
       if ((i % 2 !== 0) && (i % 3 !== 0))
