@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
-import { ICard, Card } from '../card/card';
+import { Card } from '../card/card';
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -23,7 +23,7 @@ export class WrapperComponent  {
       if (this.oldCard === null) {
         console.log('perviy click');
         this.oldCard = card;
-      } else if (this.oldCard === card) {
+      } else if (this.oldCard !== card) {
         console.log(this.oldCard)
         console.log(card)
 
