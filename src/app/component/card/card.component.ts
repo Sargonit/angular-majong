@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,14 +6,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
-
-// enum AnimationState {
-//   viewBorderAnim = 'viewBorderAnim',
-//   hideBorderAnim = 'hideBorderAnim',
-//   viewNumberAnim = 'viewNumberAnim',
-//   hideNumberAnim = 'hideNumberAnim',
-//   over = 'over'
-// }
+import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 
 @Component({
   selector: 'card',
@@ -27,24 +20,12 @@ import {
       state('hideBorderAnim', style({
         boxShadow: '0px 0px 7px 2px lightgray',
       })),
-      // transition('hideBorderAnim => viewBorderAnim', [
-      //   animate('0.2s')
-      // ]),
-      // transition('viewBorderAnim => hideBorderAnim', [
-      //   animate('0.2s')
-      // ]),
       state('viewNumberAnim', style({
         opacity: '1',
       })),
       state('hideNumberAnim', style({
         opacity: '0',
       })),
-      // transition('hideNumberAnim => viewNumberAnim', [
-      //   animate('0.2s')
-      // ]),
-      // transition('viewNumberAnim => hideNumberAnim', [
-      //   animate('0.2s')
-      // ]),
     ]),
     trigger('mouseOver', [
       state('over', style({
@@ -57,7 +38,7 @@ import {
   ]
 })
 
-export class CardComponent  {
+export class CardComponent implements OnInit {
   
   @Input() primeNumber: number;
   @Input() isBlocked = false;
@@ -67,15 +48,25 @@ export class CardComponent  {
 
   isNeedView = false;
   isNeedViewBoxShadow = false;
-  // cardValueAnimationState: AnimationState;
-  // cardShadowAnimationState: AnimationState;
 
-  constructor () {
+  constructor (private generatopPrimeNumber: GeneratopPrimeNumber) {
+  }
+
+  ngOnInit () {
+
   }
 
   viewCardValue() {
     this.isNeedView = true;
+    if (!this.isNeedView) {
+      this.generatopPrimeNumber.clickedPrimeNumber.subscribe(newPrimeNumber => {
+        console.log(newPrimeNumber);
+      });
+    }
     this.cardValue.emit(this.primeNumber);
+    
+
+    this.generatopPrimeNumber.clickedPrimeNumber.next(this.primeNumber);
   }
 
   viewBoxShadow() {

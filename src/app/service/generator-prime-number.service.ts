@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core'
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class GeneratopPrimeNumber {
+
+  public clickedPrimeNumber: BehaviorSubject<number> = new BehaviorSubject(0);
+
   private readonly countsOfPrimeNumber = 15;
   private primeNumbers: Array<number> = [];
 

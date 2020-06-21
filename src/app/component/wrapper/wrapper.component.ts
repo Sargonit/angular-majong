@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { GeneratopPrimeNumber } from '../../service/generator-prime-number.servi
 
 export class WrapperComponent  {
 
-  public title: BehaviorSubject<string> = new BehaviorSubject('');
   primeNumbers: Array<number>;
   clickedCardValue: number = 0;
 
@@ -27,6 +25,5 @@ export class WrapperComponent  {
 
     }
     
-    console.log(cardValue)
   }
 }
