@@ -10,19 +10,27 @@ import { GeneratopPrimeNumber } from '../../service/generator-prime-number.servi
 import { Card, ICard } from './card';
 import { BehaviorSubject } from 'rxjs';
 
+enum StateAnimation {
+  viewBorderAnim = 'viewBorderAnim',
+  hideBorderAnim = 'hideBorderAnim',
+  viewNumberAnim = 'viewNumberAnim',
+  hideNumberAnim = 'hideNumberAnim'
+}
 
 @Component({
   selector: 'card',
   templateUrl: './card.component.html',
   styleUrls: [ './card.component.css' ],
   animations: [
-        trigger('viewCard', [
+    trigger('clickCard', [
       state('viewBorderAnim', style({
         boxShadow: '0px 0px 8px 5px lightblue',
       })),
       state('hideBorderAnim', style({
         boxShadow: '0px 0px 7px 2px lightgray',
       })),
+    ]),
+    trigger('viewNumber', [
       state('viewNumberAnim', style({
         opacity: '1',
       })),
@@ -39,11 +47,14 @@ export class CardComponent implements OnInit {
   @Input() value: number;  
   @Output() cardSettings = new EventEmitter<Card>();
   getCardSettings() {
-    if (!this.card.isBlocked) {
+    if (!this.card.isBlocked.getValue()) {
       this.cardSettings.emit(this.card);
     }
+    // this.card.isActive
   }
 
+  stateBorderAnimation: StateAnimation = StateAnimation.viewNumberAnim;
+  stateNumberAnimation: StateAnimation = StateAnimation.hideNumberAnim;
   card: Card;
 
   constructor (private generatopPrimeNumber: GeneratopPrimeNumber) {
@@ -53,8 +64,10 @@ export class CardComponent implements OnInit {
     const cnt: ICard = {
       value: this.value,
       id: this.id,
-      isBlocked: false
+      isActive: new BehaviorSubject(false),
+      isBlocked: new BehaviorSubject(false)
     }
     this.card = new Card(cnt);
-  }  
+    // this.card.isActive.subscribe()    
+  } 
 }
