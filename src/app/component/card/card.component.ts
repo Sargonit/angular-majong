@@ -39,8 +39,9 @@ export class CardComponent implements OnInit {
   @Input() value: number;  
   @Output() cardSettings = new EventEmitter<Card>();
   getCardSettings() {
-    console.log('!!!')
-    this.cardSettings.emit(this.card);
+    if (!this.card.isBlocked) {
+      this.cardSettings.emit(this.card);
+    }
   }
 
   card: Card;
@@ -52,10 +53,8 @@ export class CardComponent implements OnInit {
     const cnt: ICard = {
       value: this.value,
       id: this.id,
-      isActive: false
+      isBlocked: false
     }
-    console.log('!!!')
-
     this.card = new Card(cnt);
   }  
 }

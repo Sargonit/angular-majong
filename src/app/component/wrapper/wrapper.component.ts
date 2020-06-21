@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class WrapperComponent  {
 
-  private oldCard: Card | null;
+  private oldCard: Card | null = null;
   primeNumbers: Array<number>;
   currentActiveCard: BehaviorSubject<Card | null> = new BehaviorSubject(null);
 
@@ -21,17 +21,20 @@ export class WrapperComponent  {
 
     this.currentActiveCard.subscribe( card => {
       if (this.oldCard === null) {
-        console.log('perviy click');
+        console.log('perviy');
         this.oldCard = card;
-      } else if (this.oldCard !== card) {
-        console.log(this.oldCard)
-        console.log(card)
-
-        console.log('vibral odinakovie');
       } else {
+        const isDifferentId = this.oldCard.id !== card.id;
+        const isSimilarValue = this.oldCard.value === card.value;
+        if (isDifferentId && isSimilarValue) {
+          this.oldCard.isBlocked = true;
+          card.isBlocked = true;
+          console.log('odinakovie');
+        } else {
+          console.log('raznie');
+        }
         this.oldCard = null;
-        console.log('vibral raznie');
-      }
+      } 
     });
   }
 
