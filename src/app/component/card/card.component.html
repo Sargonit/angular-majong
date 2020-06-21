@@ -1,10 +1,5 @@
-<div class="border"
-     [@viewCard]="isNeedView ? 'viewBorderAnim' : 'hideBorderAnim'" 
-     [@mouseOver]="isNeedViewBoxShadow ? 'over' : 'blur'" 
-     (click)="viewCardValue()" 
-     (mouseover)="viewBoxShadow()"
-     (mouseleave)="hideCardValue()">
-  <div [@viewCard]="isNeedView ? 'viewNumberAnim' : 'hideNumberAnim'" class="centered-text">
-    {{ primeNumber }}
+<div class="border">    
+  <div class="centered-text">
+    {{ card.value }}
     </div>
 </div>

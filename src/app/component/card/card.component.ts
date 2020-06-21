@@ -53,7 +53,7 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit () {
-
+    this.card = new Card(this.value);
   }
 
   
