@@ -62,11 +62,9 @@ export class CardComponent implements OnInit {
       this.generatopPrimeNumber.clickedPrimeNumber.subscribe(newPrimeNumber => {
         console.log(newPrimeNumber);
       });
+      this.generatopPrimeNumber.clickedPrimeNumber.next(this.primeNumber);
     }
     this.cardValue.emit(this.primeNumber);
-    
-
-    this.generatopPrimeNumber.clickedPrimeNumber.next(this.primeNumber);
   }
 
   viewBoxShadow() {
