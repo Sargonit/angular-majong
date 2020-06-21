@@ -20,12 +20,11 @@ export class WrapperComponent  {
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();
 
     this.currentActiveCard.subscribe( card => {
+      if (card === null) return;
       console.log(card);
-      card.isActive.next(true);
       if (this.oldCard === null) {
-        console.log('perviy');
         this.oldCard = card;
-        // card.isActive.next(true);
+        card.isActive.next(true);
       } else {
         const isDifferentId = this.oldCard.id !== card.id;
         const isSimilarValue = this.oldCard.value === card.value;

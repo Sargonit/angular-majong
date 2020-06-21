@@ -50,7 +50,6 @@ export class CardComponent implements OnInit {
     if (!this.card.isBlocked.getValue()) {
       this.cardSettings.emit(this.card);
     }
-    // this.card.isActive
   }
 
   stateBorderAnimation: StateAnimation = StateAnimation.viewNumberAnim;
