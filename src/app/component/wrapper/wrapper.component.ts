@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 import { Card } from '../card/card';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'wrapper',
@@ -11,13 +13,16 @@ import { Card } from '../card/card';
 export class WrapperComponent  {
 
   primeNumbers: Array<number>;
-  currentActiveCard: Card;
+  currentActiveCard: BehaviorSubject<Card | null> = new BehaviorSubject(null);
 
   constructor(private generatopPrimeNumber: GeneratopPrimeNumber){
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();
+    this.currentActiveCard.subscribe( card => {
+      
+    });
   }
 
   getActiveCard(card: Card) {   
-    console.log(card);
+    console.log(this.currentActiveCard);
   }
 }

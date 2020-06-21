@@ -38,8 +38,8 @@ export class CardComponent implements OnInit {
   @Input() value: number;
   @Output() cardSettings = new EventEmitter<Card>();
   getCardSettings() {
-        this.cardSettings.emit(this.card);
-    }
+    this.cardSettings.emit(this.card);
+  }
 
   card: Card;
 
