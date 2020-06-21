@@ -2,6 +2,7 @@
 <div class="wrapper">
    <card *ngFor="let primeNumber of primeNumbers"
    [primeNumber]="primeNumber"
-   (newItemEvent)="getCardValue($event)">     
+   [isBlocked]="blockingCard"
+   (cardValue)="getCardValue($event)">     
    </card>
 </div>

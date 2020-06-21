@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 
 @Component({
@@ -9,15 +10,23 @@ import { GeneratopPrimeNumber } from '../../service/generator-prime-number.servi
 
 export class WrapperComponent  {
 
+  public title: BehaviorSubject<string> = new BehaviorSubject('');
   primeNumbers: Array<number>;
-  clickedValue: number = 0;
+  clickedCardValue: number = 0;
 
   constructor(private generatopPrimeNumber: GeneratopPrimeNumber){
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();
   }
 
-  getCardValue(cardValue) {
+  getCardValue(cardValue: number) {
+    if (this.clickedCardValue === 0) {
+      this.clickedCardValue = cardValue;
+    } else if (this.clickedCardValue === cardValue) {
+      // some code for block to card with similar value
+    } else {
 
+    }
+    
     console.log(cardValue)
   }
 }

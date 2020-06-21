@@ -60,6 +60,8 @@ import {
 export class CardComponent  {
   
   @Input() primeNumber: number;
+  @Input() isBlocked = false;
+
   @Output() cardValue = new EventEmitter<number>();
 
 
@@ -67,7 +69,6 @@ export class CardComponent  {
   isNeedViewBoxShadow = false;
   // cardValueAnimationState: AnimationState;
   // cardShadowAnimationState: AnimationState;
-  isBlocked = false;
 
   constructor () {
   }
