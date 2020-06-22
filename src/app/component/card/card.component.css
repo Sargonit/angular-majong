@@ -1,8 +1,3 @@
-div {
-  display: inline-grid;  
-  width: 150px;
-  height: 150px;
-}
 
 span {
   display: flex;

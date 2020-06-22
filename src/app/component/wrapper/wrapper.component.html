@@ -2,7 +2,6 @@
 <div class="wrapper">
    <card *ngFor="let primeNumber of primeNumbers; let i = index"
    [id]="i"
-   [value]="primeNumber"
-   (cardSettings)="getActiveCard($event)">     
+   [value]="primeNumber">     
    </card>
 </div>

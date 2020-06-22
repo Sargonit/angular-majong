@@ -18,6 +18,9 @@ import { BehaviorSubject } from 'rxjs';
 
 export class CardComponent  {
   
+  @Input() value: number;
+  @Input() id: number;
+
   constructor () {
   }
 
