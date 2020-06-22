@@ -7,7 +7,6 @@ import {
   transition
 } from '@angular/animations';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
-import { Card, ICard } from './card';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -22,7 +21,5 @@ export class CardComponent  {
   @Input() id: number;
 
   constructor () {
-  }
-
-  
+  }  
 }
