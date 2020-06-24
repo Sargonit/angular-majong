@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 import { CardComponent } from '../card/card.component';
 
@@ -9,15 +9,9 @@ import { CardComponent } from '../card/card.component';
   styleUrls: [ './wrapper.component.css' ]
 })
 
-export class WrapperComponent  {
+export class WrapperComponent  { 
   
-  @ViewChild(Card) set pane(v: Card) {
-    setTimeout(() => {
-      this.tmp = v.id;
-    }, 0);
-  }
-  tmp
-  primeNumbers: Array<number>;
+  primeNumbers: ReadonlyArray<number>;
 
   constructor(private generatopPrimeNumber: GeneratopPrimeNumber){
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();    
