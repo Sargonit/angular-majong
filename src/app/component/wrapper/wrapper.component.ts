@@ -11,8 +11,7 @@ import { CardComponent } from '../card/card.component';
 })
 
 export class WrapperComponent implements OnInit, AfterViewInit { 
-  @ViewChildren(CardComponent)
-  cards: QueryList<CardComponent>;
+  @ViewChildren(CardComponent) cards: QueryList<CardComponent>;
 
   primeNumbers: ReadonlyArray<number>;
 
@@ -21,7 +20,11 @@ export class WrapperComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterContentInit(){
     this.cards.forEach(card => card.isShowCardValue = true);
+
   }
   ngAfterViewInit() {
     setTimeout(()=>{
