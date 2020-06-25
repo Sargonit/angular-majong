@@ -1,5 +1,5 @@
 import { ReplaySubject } from 'rxjs';
-import { Component, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 import { CardComponent } from '../card/card.component';
 
@@ -10,7 +10,7 @@ import { CardComponent } from '../card/card.component';
   styleUrls: [ './wrapper.component.css' ]
 })
 
-export class WrapperComponent implements AfterViewInit { 
+export class WrapperComponent implements OnInit, AfterViewInit { 
   @ViewChildren(CardComponent)
   cards: QueryList<CardComponent>;
 
@@ -20,8 +20,10 @@ export class WrapperComponent implements AfterViewInit {
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();    
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.cards.forEach(card => card.isShowCardValue = true);
+  }
+  ngAfterViewInit() {
     setTimeout(()=>{
       this.cards.forEach(card => card.isShowCardValue = false);
     }, 2000)
