@@ -16,10 +16,9 @@ div:hover {
 }
 
 span {  
-  display: flex;
   justify-content: center;
   align-items: center;
   color: lightslategrey;
-  opacity: 0;
+  /* opacity: 0; */
 }
 

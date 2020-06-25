@@ -1,5 +1,6 @@
 <div>
-  <span [id]="id">
+  <span [id]="id"
+        [@showCardValue]="isShowCardValue ? 'show' : 'hide'">
     {{ value }}
 </span>
 </div>
