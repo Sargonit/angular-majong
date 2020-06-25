@@ -23,14 +23,17 @@ import { BehaviorSubject } from 'rxjs';
       })),
       state('hide', style({
         opacity: 0
-      })),      
+      })), 
+      transition('show => hide', [
+        animate('1s')
+      ]),     
     ]),
   ]
 })
 
 export class CardComponent  {
   
-  @Input() isShowCardValue: boolean;
+  @Input() isShowCardValue: boolean = false;
   @Input() value: number;
   @Input() id: number;
 

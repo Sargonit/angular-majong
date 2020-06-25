@@ -24,7 +24,7 @@ export class WrapperComponent implements AfterViewInit {
     this.cards.forEach(card => card.isShowCardValue = true);
     setTimeout(()=>{
       this.cards.forEach(card => card.isShowCardValue = false);
-    }, 1000)
+    }, 2000)
   }
 
 }
