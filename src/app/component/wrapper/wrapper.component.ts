@@ -10,7 +10,7 @@ import { CardComponent } from '../card/card.component';
   styleUrls: [ './wrapper.component.css' ]
 })
 
-export class WrapperComponent implements OnInit, AfterViewInit { 
+export class WrapperComponent implements AfterViewInit { 
   @ViewChildren(CardComponent) cards: QueryList<CardComponent>;
 
   primeNumbers: ReadonlyArray<number>;
@@ -19,13 +19,7 @@ export class WrapperComponent implements OnInit, AfterViewInit {
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();    
   }
 
-  ngOnInit() {
-  }
 
-  ngAfterContentInit(){
-    this.cards.forEach(card => card.isShowCardValue = true);
-
-  }
   ngAfterViewInit() {
     setTimeout(()=>{
       this.cards.forEach(card => card.isShowCardValue = false);
