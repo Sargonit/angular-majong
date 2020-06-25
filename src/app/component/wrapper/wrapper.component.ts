@@ -18,8 +18,7 @@ export class WrapperComponent implements AfterViewInit {
   constructor(private generatopPrimeNumber: GeneratopPrimeNumber){
     this.primeNumbers = this.generatopPrimeNumber.getRandomPrimeNumber();    
   }
-
-
+  
   ngAfterViewInit() {
     setTimeout(()=>{
       this.cards.forEach(card => card.isShowCardValue = false);
