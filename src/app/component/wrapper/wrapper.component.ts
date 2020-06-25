@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
+import { Component, ViewChildren, QueryList } from '@angular/core';
 import { GeneratopPrimeNumber } from '../../service/generator-prime-number.service';
 import { CardComponent } from '../card/card.component';
 
@@ -10,7 +11,8 @@ import { CardComponent } from '../card/card.component';
 })
 
 export class WrapperComponent  { 
-  
+  @ViewChildren(CardComponent)
+  cards: QueryList<CardComponent>;
   primeNumbers: ReadonlyArray<number>;
 
   constructor(private generatopPrimeNumber: GeneratopPrimeNumber){

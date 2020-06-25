@@ -1,5 +1,5 @@
 
-span {
+div {
   display: flex;
   width: 65px;
   height: 80px;
@@ -11,6 +11,15 @@ span {
   cursor: pointer;
 }
 
-span:hover {
+div:hover {
   box-shadow: 0px 0px 2px 4px darkgray;
 }
+
+span {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightslategrey;
+  opacity: 0;
+}
+
