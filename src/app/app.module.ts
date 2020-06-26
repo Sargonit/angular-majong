@@ -12,4 +12,8 @@ import { CardComponent } from './component/card/card.component';
   declarations: [ AppComponent, WrapperComponent, CardComponent ],
   bootstrap:    [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.clear();
+  }
+}
